@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Журнал работ</h1>
+    {% for job in jobs %}
+    <h3>Работа #{{ job.id }}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Team Leader</th>
+                <th>Work Size (hours)</th>
+                <th>Collaborators</th>
+                <th>Is Finished</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ job.job }}</td>
+                <td>{{ job.team_leader }}</td>
+                <td>{{ job.work_size }}</td>
+                <td>{{ job.collaborators }}</td>
+                <td style="color: {% if job.is_finished %}green{% else %}red{% endif %};">
+                    {% if job.is_finished %}Yes{% else %}No{% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    {% endfor %}
+{% endblock %}

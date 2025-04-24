@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+<div class="register-container">
+    <h2 class="text_reg text-center mb-4">Создать аккаунт</h2>
+</div>
+
+<form method="POST" action="{{ url_for('register') }}">
+    {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.surname.label(class="form-label") }}
+            {{ form.surname(class="form-control", placeholder="Введите фамилию") }}
+            {% for error in form.surname.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", placeholder="Введите имя") }}
+            {% for error in form.name.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.age.label(class="form-label") }}
+            {{ form.age(class="form-control", placeholder="Введите возраст") }}
+            {% for error in form.age.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.position.label(class="form-label") }}
+            {{ form.position(class="form-control", placeholder="Введите должность") }}
+            {% for error in form.position.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.speciality.label(class="form-label") }}
+            {{ form.speciality(class="form-control", placeholder="Введите специальность") }}
+            {% for error in form.speciality.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.address.label(class="form-label") }}
+            {{ form.address(class="form-control", placeholder="Введите адрес") }}
+            {% for error in form.address.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="Введите email") }}
+            {% for error in form.email.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Введите пароль") }}
+            {% for error in form.password.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            {{ form.confirm_password.label(class="form-label") }}
+            {{ form.confirm_password(class="form-control", placeholder="Подтвердите пароль") }}
+            {% for error in form.confirm_password.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="d-grid">
+            {{ form.submit(class="subbut btn btn-primary") }}
+        </div>
+</form>
+</div>
+{% endblock %}
